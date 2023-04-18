@@ -1,6 +1,10 @@
 import pygame , sys
 from pygame.locals import *
 import numpy as np
+from numpy import testing
+from pygame import image
+import tensorflow
+from tensorflow.python.keras.backend import constant
 from keras.models import load_model
 import cv2
 
@@ -78,7 +82,7 @@ while True:
                 label = str(LABELS[np.argmax(MODEL.predict(image.reshape(1,28,28,1)))])
                 
                 textsurface = FONT.render(label, True, RED, WHITE)
-                textrecobj = testing.get_rect
+                textrecobj = textsurface.get_rect()
                 
                 textrecobj.left , textrecobj.bottom = rect_min_x, rect_max_y
                 
